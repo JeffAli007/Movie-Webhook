@@ -65,10 +65,10 @@ def getDynamicContent(req):
 
 def makeWebhookResult(data):
     info = data[movieDetails]
-	if info is None:
+    if info is None:
         return {}
     
-	movie = data['Title']
+    movie = data['Title']
 	
     speech = movie + " movie's " + movieDetails + " is " + info
     displayText = movie + " movie's " + movieDetails + " is " + info
