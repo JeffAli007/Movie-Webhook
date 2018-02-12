@@ -45,7 +45,7 @@ def processRequest(req):
     dynamic_Content = getDynamicContent(req)
     if dynamic_Content is None:
         return {}
-    final_url = baseurl + urlencode({'apikey':'6a614a70','q': dynamic_Content})
+    final_url = baseurl + urlencode({'apikey':'6a614a70','plot':'full','t': dynamic_Content})
     result = requests.get(final_url)
     data = json.loads(result.text)
     res = makeWebhookResult(data)
@@ -56,7 +56,11 @@ def getDynamicContent(req):
     result = req.get("result")
     parameters = result.get("parameters")
     movie = parameters.get("movie")
-    movieDetails = parameters.get("movie_details")
+	
+    if (parameters.get("movie_details")) is not None:
+        global movieDetails
+        movieDetails = parameters.get("movie_details")
+	
     if movie is None:
         return None
       
