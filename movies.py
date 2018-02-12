@@ -57,7 +57,7 @@ def getDynamicContent(req):
     parameters = result.get("parameters")
     movie = parameters.get("movie")
 	
-    if (parameters.get("movie_details")) is not None:
+    if (parameters.get("movie_details")) != "":
         global movieDetails
         movieDetails = parameters.get("movie_details")
 	
