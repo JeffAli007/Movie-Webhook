@@ -55,7 +55,7 @@ def processRequest(req):
 def getDynamicContent(req):
     result = req.get("result")
     parameters = result.get("parameters")
-    movie = parameters.get("movie")
+    movie = parameters.get("any")
 	
     if (parameters.get("movie_details")) != "":
         global movieDetails
